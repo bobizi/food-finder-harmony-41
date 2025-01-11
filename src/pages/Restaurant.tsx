@@ -44,12 +44,6 @@ const Restaurant = () => {
   const { id } = useParams();
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
 
-  const handleAddToCart = () => {
-    // Add to cart logic here
-    console.log("Adding to cart:", selectedItem);
-    setSelectedItem(null);
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <div className="container px-4 py-8">
@@ -119,7 +113,7 @@ const Restaurant = () => {
         {/* Menu Item Dialog */}
         <MenuItemDialog
           item={selectedItem}
-          onAddToCart={handleAddToCart}
+          onClose={() => setSelectedItem(null)}
         />
       </div>
     </div>

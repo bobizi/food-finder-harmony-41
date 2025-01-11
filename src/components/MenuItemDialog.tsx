@@ -17,13 +17,11 @@ interface MenuItem {
 }
 
 interface MenuItemDialogProps {
-  item: MenuItem | null;
+  item: MenuItem;
   onAddToCart: () => void;
 }
 
 const MenuItemDialog = ({ item, onAddToCart }: MenuItemDialogProps) => {
-  if (!item) return null;
-
   return (
     <Dialog>
       <DialogTrigger asChild>
