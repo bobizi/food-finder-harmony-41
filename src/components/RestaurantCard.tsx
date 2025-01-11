@@ -1,6 +1,8 @@
 import { Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface RestaurantCardProps {
+  id: number;
   name: string;
   image: string;
   rating: number;
@@ -10,6 +12,7 @@ interface RestaurantCardProps {
 }
 
 const RestaurantCard = ({
+  id,
   name,
   image,
   rating,
@@ -17,8 +20,13 @@ const RestaurantCard = ({
   minOrder,
   cuisine,
 }: RestaurantCardProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="glass-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg animate-fade-up">
+    <div 
+      className="glass-card rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg animate-fade-up cursor-pointer"
+      onClick={() => navigate(`/restaurant/${id}`)}
+    >
       <div className="relative h-48 overflow-hidden">
         <img
           src={image}
