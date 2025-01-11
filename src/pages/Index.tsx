@@ -1,11 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import SearchBar from "../components/SearchBar";
+import RestaurantCard from "../components/RestaurantCard";
+
+const restaurants = [
+  {
+    id: 1,
+    name: "Итальянская кухня",
+    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+    rating: 4.8,
+    deliveryTime: "25-35 мин",
+    minOrder: "1000 ₽",
+    cuisine: "Итальянская",
+  },
+  {
+    id: 2,
+    name: "Азиатский фьюжн",
+    image: "https://images.unsplash.com/photo-1553163147-622ab57be1c7",
+    rating: 4.6,
+    deliveryTime: "30-45 мин",
+    minOrder: "800 ₽",
+    cuisine: "Азиатская",
+  },
+  {
+    id: 3,
+    name: "Русская кухня",
+    image: "https://images.unsplash.com/photo-1547573854-74d2a71d0826",
+    rating: 4.7,
+    deliveryTime: "20-30 мин",
+    minOrder: "900 ₽",
+    cuisine: "Русская",
+  },
+];
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <div className="container px-4 py-8">
+        <h1 className="text-4xl md:text-5xl font-display text-center mb-8 animate-fade-up">
+          Доставка вкусной еды
+        </h1>
+        <SearchBar />
+        
+        <div className="mt-12">
+          <h2 className="text-2xl font-display mb-6 animate-fade-up">Популярные рестораны</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {restaurants.map((restaurant) => (
+              <RestaurantCard key={restaurant.id} {...restaurant} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
